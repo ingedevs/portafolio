@@ -11,12 +11,14 @@ class ProjectsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         TitleDivider(
           title: S.of(context).projectsTitle,
         ),
         ListView.separated(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           separatorBuilder: (context, index) => const SizedBox(height: 100.0),
           itemCount: projects.length,
           itemBuilder: (_, i) => ProjectCard(project: projects[i]),

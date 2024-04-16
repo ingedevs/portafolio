@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../generated/l10n.dart';
 import 'config/theme/app_colors.dart';
@@ -18,6 +19,14 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           title: 'Ingedevs',
           debugShowCheckedModeBanner: false,
+          builder: (context, child) => ResponsiveBreakpoints.builder(
+            child: child!,
+            breakpoints: [
+              const Breakpoint(start: 0, end: 450, name: MOBILE),
+              const Breakpoint(start: 451, end: 800, name: TABLET),
+              const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
+            ],
+          ),
           themeMode: themeProvider.selectedThemeMode,
           theme: ThemeData(
             brightness: Brightness.light,

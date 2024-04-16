@@ -31,16 +31,19 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1080),
-            child: const Column(
-              children: [
-                AboutView(),
-                SkillsView(),
-                ProjectsView(),
-                SizedBox(height: 100.0),
-              ],
+        child: Padding(
+          padding: const EdgeInsets.all(28.0),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1080),
+              child: const Column(
+                children: [
+                  AboutView(),
+                  SkillsView(),
+                  ProjectsView(),
+                  SizedBox(height: 100.0),
+                ],
+              ),
             ),
           ),
         ),

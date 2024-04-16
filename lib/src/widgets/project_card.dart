@@ -18,7 +18,6 @@ class ProjectCard extends StatelessWidget {
     final primaryColor = Theme.of(context).primaryColor;
 
     return SizedBox(
-      height: 720,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -65,8 +64,8 @@ class ProjectCard extends StatelessWidget {
           ),
           const SizedBox(height: 32.0),
           if (project.assets.isNotEmpty)
-            SizedBox(
-              height: 600,
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 500.0),
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 separatorBuilder: (context, index) =>
