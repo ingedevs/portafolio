@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../data/projects.dart';
@@ -17,49 +18,98 @@ class ProjectCard extends StatelessWidget {
     final style = Theme.of(context).textTheme;
     final primaryColor = Theme.of(context).primaryColor;
 
+    final breakpoint = ResponsiveBreakpoints.of(context).breakpoint.name;
+
     return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text.rich(TextSpan(
-                text: project.title,
-                style: style.displaySmall?.copyWith(
-                  fontWeight: FontWeight.bold,
+          if (breakpoint == MOBILE)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text.rich(TextSpan(
+                  text: project.title,
+                  style: style.displaySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+                const SizedBox(height: 8.0),
+                Row(
+                  children: [
+                    if (project.urlWeb != null)
+                      IconButton(
+                        onPressed: () async {
+                          await launchUrlString(project.urlWeb!);
+                        },
+                        icon: Icon(BoxIcons.bx_link, color: primaryColor),
+                      ),
+                    if (project.urlGithub != null)
+                      IconButton(
+                        onPressed: () async {
+                          await launchUrlString(project.urlGithub!);
+                        },
+                        icon: Icon(BoxIcons.bxl_github, color: primaryColor),
+                      ),
+                    if (project.urlPlayStore != null)
+                      IconButton(
+                        onPressed: () async {
+                          await launchUrlString(project.urlPlayStore!);
+                        },
+                        icon:
+                            Icon(BoxIcons.bxl_play_store, color: primaryColor),
+                      ),
+                    if (project.urlAppStore != null)
+                      IconButton(
+                        onPressed: () async {
+                          await launchUrlString(project.urlAppStore!);
+                        },
+                        icon: Icon(BoxIcons.bxl_apple, color: primaryColor),
+                      ),
+                  ],
                 ),
-              )),
-              const SizedBox(width: 8.0),
-              if (project.urlWeb != null)
-                IconButton(
-                  onPressed: () async {
-                    await launchUrlString(project.urlWeb!);
-                  },
-                  icon: Icon(BoxIcons.bx_link, color: primaryColor),
-                ),
-              if (project.urlGithub != null)
-                IconButton(
-                  onPressed: () async {
-                    await launchUrlString(project.urlGithub!);
-                  },
-                  icon: Icon(BoxIcons.bxl_github, color: primaryColor),
-                ),
-              if (project.urlPlayStore != null)
-                IconButton(
-                  onPressed: () async {
-                    await launchUrlString(project.urlPlayStore!);
-                  },
-                  icon: Icon(BoxIcons.bxl_play_store, color: primaryColor),
-                ),
-              if (project.urlAppStore != null)
-                IconButton(
-                  onPressed: () async {
-                    await launchUrlString(project.urlAppStore!);
-                  },
-                  icon: Icon(BoxIcons.bxl_apple, color: primaryColor),
-                ),
-            ],
-          ),
+              ],
+            )
+          else
+            Row(
+              children: [
+                Text.rich(TextSpan(
+                  text: project.title,
+                  style: style.displaySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+                const SizedBox(width: 8.0),
+                if (project.urlWeb != null)
+                  IconButton(
+                    onPressed: () async {
+                      await launchUrlString(project.urlWeb!);
+                    },
+                    icon: Icon(BoxIcons.bx_link, color: primaryColor),
+                  ),
+                if (project.urlGithub != null)
+                  IconButton(
+                    onPressed: () async {
+                      await launchUrlString(project.urlGithub!);
+                    },
+                    icon: Icon(BoxIcons.bxl_github, color: primaryColor),
+                  ),
+                if (project.urlPlayStore != null)
+                  IconButton(
+                    onPressed: () async {
+                      await launchUrlString(project.urlPlayStore!);
+                    },
+                    icon: Icon(BoxIcons.bxl_play_store, color: primaryColor),
+                  ),
+                if (project.urlAppStore != null)
+                  IconButton(
+                    onPressed: () async {
+                      await launchUrlString(project.urlAppStore!);
+                    },
+                    icon: Icon(BoxIcons.bxl_apple, color: primaryColor),
+                  ),
+              ],
+            ),
           const SizedBox(height: 8.0),
           Text(
             project.description,

@@ -18,9 +18,9 @@ class AboutView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _ImageLogo(),
-          const SizedBox(width: 32.0),
+          const SizedBox(height: 32.0),
           _TextData(),
-          const SizedBox(width: 120.0),
+          const SizedBox(height: 32.0),
         ],
       );
     }
@@ -45,8 +45,18 @@ class _ImageLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).appBarTheme.backgroundColor;
 
+    final breakpoint = ResponsiveBreakpoints.of(context).breakpoint.name;
+
+    double maxWidth() {
+      return switch (breakpoint) {
+        MOBILE => 200,
+        TABLET => 300,
+        (_) => 400,
+      };
+    }
+
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 400, maxHeight: 400),
+      constraints: BoxConstraints(maxWidth: maxWidth(), maxHeight: maxWidth()),
       child: Container(
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -77,14 +87,6 @@ class _TextData extends StatelessWidget {
       };
     }
 
-    TextStyle? textStyleDescription() {
-      return switch (breakpoint) {
-        MOBILE => style.titleSmall,
-        TABLET => style.titleMedium,
-        (_) => style.titleLarge,
-      };
-    }
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +108,7 @@ class _TextData extends StatelessWidget {
         const SizedBox(height: 16.0),
         Text(
           S.of(context).aboutDescription,
-          style: textStyleDescription(),
+          style: style.bodyLarge,
         ),
         const SizedBox(height: 16.0),
         if (breakpoint == MOBILE)

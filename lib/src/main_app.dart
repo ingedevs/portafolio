@@ -17,13 +17,13 @@ class MainApp extends StatelessWidget {
       child: const HomePage(),
       builder: (context, themeProvider, child) {
         return MaterialApp(
-          title: 'Ingedevs',
+          title: 'Portafolio',
           debugShowCheckedModeBanner: false,
           builder: (context, child) => ResponsiveBreakpoints.builder(
             child: child!,
             breakpoints: [
-              const Breakpoint(start: 0, end: 450, name: MOBILE),
-              const Breakpoint(start: 451, end: 800, name: TABLET),
+              const Breakpoint(start: 0, end: 460, name: MOBILE),
+              const Breakpoint(start: 461, end: 800, name: TABLET),
               const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
             ],
           ),
