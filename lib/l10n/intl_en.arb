@@ -1,8 +1,15 @@
 {
+  "@@locale": "en",
   "aboutPart1": "Hi I am ",
+  "@aboutPart1": {},
   "aboutPart2": " a Flutter Developer from Mexico.",
+  "@aboutPart2": {},
   "aboutDescription": "I am an engineer in computer systems, proactive and self -taught with experience in developing mobile applications with Flutter and Dart.",
+  "@aboutDescription": {},
   "buttonDownloadCV": "Download CV",
+  "@buttonDownloadCV": {},
   "projectsTitle": "Recent projects",
-  "skillsTitle": "Tools and skills"
+  "@projectsTitle": {},
+  "skillsTitle": "Tools and skills",
+  "@skillsTitle": {}
 }

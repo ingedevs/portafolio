@@ -1,8 +1,15 @@
 {
+  "@@locale": "es",
   "aboutPart1": "Hola, soy ",
+  "@aboutPart1": {},
   "aboutPart2": " un Flutter Developer de Mexico. ",
+  "@aboutPart2": {},
   "aboutDescription": "Soy un ingeniero en sistemas computacionales, proactivo y autodidacta con experiencia en desarrollo de aplicaciones móviles con Flutter y Dart.",
+  "@aboutDescription": {},
   "buttonDownloadCV": "Descargar CV",
+  "@buttonDownloadCV": {},
   "projectsTitle": "Proyectos recientes",
-  "skillsTitle": "Herramientas y habilidades"
+  "@projectsTitle": {},
+  "skillsTitle": "Herramientas y habilidades",
+  "@skillsTitle": {}
 }
