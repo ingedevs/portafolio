@@ -25,7 +25,9 @@ class ProjectCard extends StatelessWidget {
             children: [
               Text.rich(TextSpan(
                 text: project.title,
-                style: style.displaySmall,
+                style: style.displaySmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               )),
               const SizedBox(width: 8.0),
               if (project.urlWeb != null)
@@ -58,6 +60,7 @@ class ProjectCard extends StatelessWidget {
                 ),
             ],
           ),
+          const SizedBox(height: 8.0),
           Text(
             project.description,
             style: style.titleLarge,

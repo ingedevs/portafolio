@@ -10,28 +10,27 @@ class SkillsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TitleDivider(
           title: S.of(context).skillsTitle,
         ),
-        const Row(
+        const Wrap(
+          spacing: 16.0,
+          runSpacing: 16.0,
           children: [
             SkillCard(
               asset: 'assets/icons/ic_flutter.svg',
             ),
-            SizedBox(width: 16.0),
             SkillCard(
               asset: 'assets/icons/ic_firebase.svg',
             ),
-            SizedBox(width: 16.0),
             SkillCard(
               asset: 'assets/icons/ic_postgresql.svg',
             ),
-            SizedBox(width: 16.0),
             SkillCard(
               asset: 'assets/icons/ic_git.svg',
             ),
-            SizedBox(width: 16.0),
             SkillCard(
               asset: 'assets/icons/ic_figma.svg',
             ),

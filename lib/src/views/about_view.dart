@@ -79,9 +79,9 @@ class _TextData extends StatelessWidget {
 
     TextStyle? textStyleDescription() {
       return switch (breakpoint) {
-        MOBILE => style.titleLarge,
+        MOBILE => style.titleSmall,
         TABLET => style.titleMedium,
-        (_) => style.titleSmall,
+        (_) => style.titleLarge,
       };
     }
 
@@ -125,6 +125,7 @@ class _TextData extends StatelessWidget {
             children: [
               _LinkedinButton(),
               _GithubButton(),
+              const SizedBox(width: 16.0),
               _DownloadCVButton(),
             ],
           ),
