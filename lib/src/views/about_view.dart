@@ -11,6 +11,8 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
+    final primaryColor = Theme.of(context).primaryColor;
+    final backgroundColor = Theme.of(context).appBarTheme.backgroundColor;
 
     return SizedBox(
       height: 650,
@@ -24,11 +26,11 @@ class AboutView extends StatelessWidget {
                   text: S.of(context).aboutPart1,
                   style: style.displayLarge,
                   children: [
-                    const TextSpan(
+                    TextSpan(
                       text: 'Axel Roman',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: colorSeed,
+                        color: primaryColor,
                       ),
                     ),
                     TextSpan(text: S.of(context).aboutPart2),
@@ -37,7 +39,7 @@ class AboutView extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 Text(
                   S.of(context).aboutDescription,
-                  style: style.titleLarge?.copyWith(color: Colors.white70),
+                  style: style.titleLarge,
                 ),
                 const SizedBox(height: 16.0),
                 Row(
@@ -77,9 +79,9 @@ class AboutView extends StatelessWidget {
           Container(
             width: 400,
             height: 400,
-            decoration: const BoxDecoration(
-              color: Colors.white10,
-              image: DecorationImage(
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              image: const DecorationImage(
                 image: AssetImage('assets/notion_profile_transparent.png'),
                 fit: BoxFit.cover,
               ),

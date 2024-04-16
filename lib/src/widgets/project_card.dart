@@ -15,6 +15,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
+    final primaryColor = Theme.of(context).primaryColor;
 
     return SizedBox(
       height: 720,
@@ -33,34 +34,34 @@ class ProjectCard extends StatelessWidget {
                   onPressed: () async {
                     await launchUrlString(project.urlWeb!);
                   },
-                  icon: const Icon(BoxIcons.bx_link),
+                  icon: Icon(BoxIcons.bx_link, color: primaryColor),
                 ),
               if (project.urlGithub != null)
                 IconButton(
                   onPressed: () async {
                     await launchUrlString(project.urlGithub!);
                   },
-                  icon: const Icon(BoxIcons.bxl_github),
+                  icon: Icon(BoxIcons.bxl_github, color: primaryColor),
                 ),
               if (project.urlPlayStore != null)
                 IconButton(
                   onPressed: () async {
                     await launchUrlString(project.urlPlayStore!);
                   },
-                  icon: const Icon(BoxIcons.bxl_play_store),
+                  icon: Icon(BoxIcons.bxl_play_store, color: primaryColor),
                 ),
               if (project.urlAppStore != null)
                 IconButton(
                   onPressed: () async {
                     await launchUrlString(project.urlAppStore!);
                   },
-                  icon: const Icon(BoxIcons.bxl_apple),
+                  icon: Icon(BoxIcons.bxl_apple, color: primaryColor),
                 ),
             ],
           ),
           Text(
             project.description,
-            style: style.titleLarge?.copyWith(color: Colors.white70),
+            style: style.titleLarge,
           ),
           const SizedBox(height: 32.0),
           if (project.assets.isNotEmpty)

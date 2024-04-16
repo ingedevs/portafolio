@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:provider/provider.dart';
 
+import '../config/theme/theme_provider.dart';
 import '../views/about_view.dart';
 import '../views/projects_view.dart';
 import '../views/skills_view.dart';
@@ -12,22 +14,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
 
+    final themeState = Provider.of<ThemeProvider>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Ingedevs', style: style.titleMedium),
         centerTitle: true,
         actions: [
-          TextButton(
-            onPressed: () {
-              //TODO: implementar cambio de lenguaje
-            },
-            child: const Text('ES'),
-          ),
           IconButton(
-            onPressed: () {
-              //TODO: implementar cambio de tema
-            },
-            icon: const Icon(BoxIcons.bx_sun),
+            onPressed: themeState.toggleThemeMode,
+            icon: themeState.isDarkMode
+                ? const Icon(BoxIcons.bx_sun)
+                : const Icon(BoxIcons.bx_moon),
           ),
           const SizedBox(width: 8.0),
         ],

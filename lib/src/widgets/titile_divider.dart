@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-import '../config/constants.dart';
-
 class TitleDivider extends StatelessWidget {
   final String title;
 
@@ -14,21 +12,19 @@ class TitleDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
+    final primaryColor = Theme.of(context).primaryColor;
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 32.0),
       child: Row(
         children: [
-          const Icon(
+          Icon(
             HeroIcons.arrow_long_down,
-            color: colorSeed,
+            color: primaryColor,
             size: 32.0,
           ),
           const SizedBox(width: 8.0),
-          Text(title,
-              style: style.bodyLarge?.copyWith(
-                color: Colors.white70,
-              )),
+          Text(title, style: style.bodyLarge),
         ],
       ),
     );
